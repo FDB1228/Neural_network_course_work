@@ -109,8 +109,13 @@ void NetWork::SaveWeights() {
 	ofstream fout;
 	fout.open("Weights.txt");
 	if (!fout.is_open()) {
-		cout << "Error reading the file";
+		cout << "Error writing the file";
 		system("pause");
+		return;
+	}
+	fout.precision(10);
+	for (int i = 0; i < L - 1; ++i) {
+		fout << weights[i] << " ";
 	}
 	for (int i = 0; i < L - 1; ++i) {
 		for (int j = 0; j < size[i + 1]; ++j) {
